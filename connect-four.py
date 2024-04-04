@@ -1,25 +1,14 @@
-def main():
-    board = initialiseBoard()
-    current_player = "Y"
+bord = []
 
-    while True:
-        
-    
-def initialiseBoard():
-    board = []
-    for _ in range(6):
-        row = []
-        for _ in range(7):
-            row.append('-')
-        board.append(row)
-    return board
-    
-def displayBoard(board):
-    for row in board:
-        for cell in row:
-            print(cell, end=' ')
+for i in range(6):
+    bord.append(['-','-','-','-','-','-','-'])
+
+
+while True:
+    choice = int(input("where do you want to go: "))
+    bord[5][choice] = "X"
+
+    for row in bord:
+        for col in row:
+            print(col, end=" ")
         print()
-    print()
-
-if __name__ == "__main__":
-    main()
