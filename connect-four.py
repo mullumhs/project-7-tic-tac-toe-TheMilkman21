@@ -28,7 +28,7 @@ def vertical_check():
     #up
     for row in range(3):
         for col in range(6):
-             if bord[row][col] == bord[row + 1][col] == bord[row + 2][col] == bord[row + 3][col] and not bord[row + 3][col] == ' - ':
+            if bord[row][col] == bord[row + 1][col] == bord[row + 2][col] == bord[row + 3][col] and not bord[row + 3][col] == ' - ':
                 print("win")
                 break
 

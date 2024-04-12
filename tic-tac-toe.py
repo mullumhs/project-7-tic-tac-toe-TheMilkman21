@@ -7,11 +7,12 @@ def print_bord():
     print(' ___ ___ ___ ')
     print('| 1 | 2 | 3 |')
     for row in bord:
-        print('', end='|')
+        print('', end='|' )
         for col in row:
             print(col, end='|')
         print()
         horisontal_check()
+        vertical_check()
 
 def horisontal_check():
     #across
@@ -21,19 +22,31 @@ def horisontal_check():
                 print("win")
                 break
 
+def vertical_check():
+    #up
+    for row in range(3):
+        for col in range(6):
+            if bord[row][col] == bord[row + 1][col] == bord[row + 2][col] == bord[row + 3][col] and not bord[row + 3][col] == ' - ':
+                print("win")
+                break
+
 PlayerCounter = 1 
 intil_bord()
 print_bord()
 
 
 while True:
-    token = ' X '
-    if PlayerCounter % 2 == 0:
+    if PlayerCounter % 2 != 0:
+        print("Player 1's go")
+        token = ' X '
+    else:
+        print("Player 2's go")
         token = ' O '
 
 
     print('')
-    choice = int(input("where do you want to go: "))
+    choice = int(input("which row do you want to go: "))
+    choice = int(input("which colum do you want to go: "))
     print('')
     choice -= 1
 
@@ -42,5 +55,6 @@ while True:
             bord[i][choice] = token
             PlayerCounter += 1
             break
+    
 
     print_bord()
