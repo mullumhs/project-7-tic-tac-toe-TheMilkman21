@@ -25,10 +25,9 @@ def horisontal_check():
 def vertical_check():
     #up
     for row in range(3):
-        for col in range(6):
-            if bord[row][col] == bord[row + 1][col] == bord[row + 2][col] == bord[row + 3][col] and not bord[row + 3][col] == ' - ':
-                print("win")
-                break
+        if bord[row] == bord[row + 1] == bord[row + 2] and not bord[row + 2] == ' - ':
+            print("win")
+            break
 
 PlayerCounter = 1 
 intil_bord()
