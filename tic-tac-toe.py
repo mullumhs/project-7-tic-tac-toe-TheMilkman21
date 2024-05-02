@@ -11,23 +11,23 @@ def print_bord():
         for col in row:
             print(col, end='|')
         print()
-        horisontal_check()
-        vertical_check()
+    
 
 def horisontal_check():
     #across
-    for row in range(2):
-        for col in range(1):
-            if bord[row][col] == bord[row][col + 1] == bord[row][col + 2]  and not bord[row][col + 2] == ' - ':
-                print("win")
-                break
+    for row in range(1):
+        if bord[0][row] == bord[1][row] == bord[2][row]  and not bord[2][row] == ' - ':
+            print("win hori")
+            break
 
 def vertical_check():
     #up
-    for row in range(3):
-        if bord[row] == bord[row + 1] == bord[row + 2] and not bord[row + 2] == ' - ':
-            print("win")
+    for col in range(3):
+        if bord[col][0] == bord[col][1] == bord[col][2] and not bord[col][2] == ' - ':
+            print("win vert")
             break
+
+
 
 PlayerCounter = 1 
 intil_bord()
@@ -44,16 +44,20 @@ while True:
 
 
     print('')
-    choice = int(input("which row do you want to go: "))
-    choice = int(input("which colum do you want to go: "))
+    choice_row = int(input("which row do you want to go(1,2,3): ")) - 1
+    choice_col = int(input("which colum do you want to go(1,2,3): ")) - 1
     print('')
-    choice -= 1
 
-    for i in range (2, -1, -1):
-        if bord[i][choice] == ' - ':
-            bord[i][choice] = token
-            PlayerCounter += 1
-            break
+
+    
+
+
+    
+    bord[choice_col][choice_row] = token 
+    PlayerCounter += 1
+    
     
 
     print_bord()
+    horisontal_check()
+    vertical_check()
