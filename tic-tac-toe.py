@@ -14,24 +14,27 @@ def print_bord():
     
 
 def horisontal_check():
-    #across
+    #up
     for row in range(3):
         if bord[0][row] == bord[1][row] == bord[2][row] and not bord[2][row] == ' - ':
-            print("win hori")
-            break
+            print("win ")
+            return True
 
 def vertical_check():
-    #up
+    #across
     for col in range(3):
         if bord[col][0] == bord[col][1] == bord[col][2] and not bord[col][2] == ' - ':
-            print("win vert")
-            break
+            print("win ")
+            return True
 
 def diag_check():
     if bord[0][0] == bord[1][1] == bord[2][2] and not bord[0][0] == ' - ':
         print("win")
-    if bord[0][0] == bord[1][1] == bord[2][2] and not bord[0][0] == ' - ':
+        return True
+    if bord[2][0] == bord[1][1] == bord[0][2] and not bord[0][2] == ' - ':
         print("win")
+        return True
+
 
 PlayerCounter = 1 
 intil_bord()
@@ -63,10 +66,17 @@ while True:
     else:
         print("error not a place")
     
+    if PlayerCounter == 9:
+        print("draw")
+        break
     
     
 
     print_bord()
-    horisontal_check()
-    vertical_check()
-    diag_check()
+    if horisontal_check() or vertical_check() or diag_check():
+        break
+       
+        
+    
+    
+   
